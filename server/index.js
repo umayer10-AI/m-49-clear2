@@ -22,6 +22,10 @@ app.post('/', (req, res) => {
 
     console.log("server paisi",req.body)
 
+    const newUser = req.body
+    newUser.id = users.length+1
+    users.push(newUser)
+
     res.send({ok: true, message: "Wow Data paisi"})
 })
 
