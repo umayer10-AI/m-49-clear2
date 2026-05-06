@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const port = process.env.PORT || 5000
+
+app.use(cors())
 
 const users = [
     {id: 1, name: "Umayer1", email: "jhon@example.com"},
@@ -12,6 +15,13 @@ const users = [
 
 app.get('/', (req, res) => {
   res.send(users)
+})
+
+app.get('/', (req, res) => {
+
+    console.log("server paisi",req.body)
+
+    res.send({ok: true, message: "Wow Data paisi"})
 })
 
 app.get('/about', (req, res) => {
