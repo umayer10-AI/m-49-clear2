@@ -34,6 +34,13 @@ const About = () => {
             body: JSON.stringify(v)
         })
 
+        const data = await res.json()
+        console.log(data)
+
+        if(data.ok){
+            alert("Data Successfully")
+        }
+
     }
 
     return (
