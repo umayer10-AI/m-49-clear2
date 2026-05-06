@@ -13,11 +13,27 @@ import {
 } from "@heroui/react";
 // import { redirect } from "next/navigation";
 import React from 'react';
+import { useForm } from "react-hook-form";
 
-const page = () => {
+const About = () => {
+
+    const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
     const a = async (v) => {
         console.log(v)
+
+        const res = await fetch("http://localhost:5000", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(v)
+        })
+
     }
 
     return (
@@ -63,4 +79,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default About;
