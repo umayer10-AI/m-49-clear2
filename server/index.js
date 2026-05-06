@@ -4,6 +4,7 @@ const cors = require('cors')
 const port = process.env.PORT || 5000
 
 app.use(cors())
+app.use(express.json())
 
 const users = [
     {id: 1, name: "Umayer1", email: "jhon@example.com"},
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
   res.send(users)
 })
 
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
 
     console.log("server paisi",req.body)
 
